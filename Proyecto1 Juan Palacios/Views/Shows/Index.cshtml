@@ -1,69 +1,94 @@
 ﻿@model IEnumerable<Proyecto1_Juan_Palacios.Models.Show>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shows";
 }
 
-<h2>Index</h2>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/">Proyecto de Arquitectura</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a runat="server" href="~/">Inicio</a></li>
+                    <li><a runat="server" href="~/Artistas/Index">Artistas</a></li>
+                    <li><a runat="server" href="~/EncargadoEventoes/Index">Encargado de Eventos</a></li>
+                    <li><a runat="server" href="~/Grupos/Index">Grupos</a></li>
+                    <li><a runat="server" href="~/Shows/Index">Shows</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreShow)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha_Evento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoraEvento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Artista.NombreArtista)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EncargadoEvento.NombreEncargado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Grupos.NombreGrupo)
-        </th>
-        <th></th>
-    </tr>
+    <h2>Agregar Shows</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreShow)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha_Evento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoraEvento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cantidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Artista.NombreArtista)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EncargadoEvento.NombreEncargado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Grupos.NombreGrupo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Show }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Show }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Show })
-        </td>
-    </tr>
-}
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreShow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Evento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Artista.NombreArtista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EncargadoEvento.NombreEncargado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grupos.NombreGrupo)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreShow)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Evento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoraEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Artista.NombreArtista)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EncargadoEvento.NombreEncargado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grupos.NombreGrupo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Show }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Show }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Show })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

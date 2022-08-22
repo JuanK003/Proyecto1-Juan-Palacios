@@ -1,39 +1,64 @@
 ﻿@model IEnumerable<Proyecto1_Juan_Palacios.Models.Grupos>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Grupos";
 }
 
-<h2>Index</h2>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/">Proyecto de Arquitectura</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a runat="server" href="~/">Inicio</a></li>
+                    <li><a runat="server" href="~/Artistas/Index">Artistas</a></li>
+                    <li><a runat="server" href="~/EncargadoEventoes/Index">Encargado de Eventos</a></li>
+                    <li><a runat="server" href="~/Grupos/Index">Grupos</a></li>
+                    <li><a runat="server" href="~/Shows/Index">Shows</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreGrupo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailGrupo)
-        </th>
-        <th></th>
-    </tr>
+    <h2>Agregar Grupos</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreGrupo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailGrupo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Grupo }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Grupo }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Grupo })
-        </td>
-    </tr>
-}
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreGrupo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailGrupo)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreGrupo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailGrupo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Grupo }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_Grupo }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Grupo })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
