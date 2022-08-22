@@ -1,0 +1,42 @@
+﻿@model Proyecto1_Juan_Palacios.Models.EncargadoEvento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EncargadoEvento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEncargado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEncargado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoEncargado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoEncargado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailEncargado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailEncargado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Encargado }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

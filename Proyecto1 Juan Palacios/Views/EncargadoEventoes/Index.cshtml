@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Proyecto1_Juan_Palacios.Models.EncargadoEvento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEncargado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelefonoEncargado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailEncargado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEncargado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefonoEncargado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailEncargado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Encargado }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Encargado }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Encargado })
+        </td>
+    </tr>
+}
+
+</table>

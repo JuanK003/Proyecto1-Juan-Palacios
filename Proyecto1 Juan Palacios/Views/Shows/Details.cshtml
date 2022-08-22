@@ -1,0 +1,74 @@
+﻿@model Proyecto1_Juan_Palacios.Models.Show
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Show</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreShow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreShow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Evento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraEvento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraEvento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artista.NombreArtista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artista.NombreArtista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EncargadoEvento.NombreEncargado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EncargadoEvento.NombreEncargado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grupos.NombreGrupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grupos.NombreGrupo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Show }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

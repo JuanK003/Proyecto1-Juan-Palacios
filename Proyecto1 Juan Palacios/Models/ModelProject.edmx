@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PrimerParcial_JuanPalaciosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artistas">
+          <Key>
+            <PropertyRef Name="ID_Artista" />
+          </Key>
+          <Property Name="ID_Artista" Type="int" Nullable="false" />
+          <Property Name="NombreArtista" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EmailArtista" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EncargadoEvento">
+          <Key>
+            <PropertyRef Name="ID_Encargado" />
+          </Key>
+          <Property Name="ID_Encargado" Type="int" Nullable="false" />
+          <Property Name="NombreEncargado" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="TelefonoEncargado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EmailEncargado" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="ID_Grupo" />
+          </Key>
+          <Property Name="ID_Grupo" Type="int" Nullable="false" />
+          <Property Name="NombreGrupo" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="EmailGrupo" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Show">
+          <Key>
+            <PropertyRef Name="ID_Show" />
+          </Key>
+          <Property Name="ID_Show" Type="int" Nullable="false" />
+          <Property Name="NombreShow" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Fecha_Evento" Type="datetime" Nullable="false" />
+          <Property Name="HoraEvento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="ID_Artista" Type="int" />
+          <Property Name="ID_Encargado" Type="int" />
+          <Property Name="ID_Grupo" Type="int" />
+        </EntityType>
+        <Association Name="Relationship1">
+          <End Role="Artistas" Type="Self.Artistas" Multiplicity="0..1" />
+          <End Role="Show" Type="Self.Show" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artistas">
+              <PropertyRef Name="ID_Artista" />
+            </Principal>
+            <Dependent Role="Show">
+              <PropertyRef Name="ID_Artista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship2">
+          <End Role="EncargadoEvento" Type="Self.EncargadoEvento" Multiplicity="0..1" />
+          <End Role="Show" Type="Self.Show" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EncargadoEvento">
+              <PropertyRef Name="ID_Encargado" />
+            </Principal>
+            <Dependent Role="Show">
+              <PropertyRef Name="ID_Encargado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship3">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="0..1" />
+          <End Role="Show" Type="Self.Show" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="ID_Grupo" />
+            </Principal>
+            <Dependent Role="Show">
+              <PropertyRef Name="ID_Grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PrimerParcial_JuanPalaciosModelStoreContainer">
+          <EntitySet Name="Artistas" EntityType="Self.Artistas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EncargadoEvento" EntityType="Self.EncargadoEvento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Show" EntityType="Self.Show" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Relationship1" Association="Self.Relationship1">
+            <End Role="Artistas" EntitySet="Artistas" />
+            <End Role="Show" EntitySet="Show" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship2" Association="Self.Relationship2">
+            <End Role="EncargadoEvento" EntitySet="EncargadoEvento" />
+            <End Role="Show" EntitySet="Show" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship3" Association="Self.Relationship3">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Show" EntitySet="Show" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PrimerParcial_JuanPalaciosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artista">
+          <Key>
+            <PropertyRef Name="ID_Artista" />
+          </Key>
+          <Property Name="ID_Artista" Type="Int32" Nullable="false" />
+          <Property Name="NombreArtista" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailArtista" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Shows" Relationship="Self.Relationship1" FromRole="Artistas" ToRole="Show" />
+        </EntityType>
+        <EntityType Name="EncargadoEvento">
+          <Key>
+            <PropertyRef Name="ID_Encargado" />
+          </Key>
+          <Property Name="ID_Encargado" Type="Int32" Nullable="false" />
+          <Property Name="NombreEncargado" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonoEncargado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailEncargado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Shows" Relationship="Self.Relationship2" FromRole="EncargadoEvento" ToRole="Show" />
+        </EntityType>
+        <EntityType Name="Grupos">
+          <Key>
+            <PropertyRef Name="ID_Grupo" />
+          </Key>
+          <Property Name="ID_Grupo" Type="Int32" Nullable="false" />
+          <Property Name="NombreGrupo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailGrupo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Shows" Relationship="Self.Relationship3" FromRole="Grupos" ToRole="Show" />
+        </EntityType>
+        <EntityType Name="Show">
+          <Key>
+            <PropertyRef Name="ID_Show" />
+          </Key>
+          <Property Name="ID_Show" Type="Int32" Nullable="false" />
+          <Property Name="NombreShow" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Evento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HoraEvento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="ID_Artista" Type="Int32" />
+          <Property Name="ID_Encargado" Type="Int32" />
+          <Property Name="ID_Grupo" Type="Int32" />
+          <NavigationProperty Name="Artista" Relationship="Self.Relationship1" FromRole="Show" ToRole="Artistas" />
+          <NavigationProperty Name="EncargadoEvento" Relationship="Self.Relationship2" FromRole="Show" ToRole="EncargadoEvento" />
+          <NavigationProperty Name="Grupos" Relationship="Self.Relationship3" FromRole="Show" ToRole="Grupos" />
+        </EntityType>
+        <Association Name="Relationship1">
+          <End Role="Artistas" Type="Self.Artista" Multiplicity="0..1" />
+          <End Role="Show" Type="Self.Show" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artistas">
+              <PropertyRef Name="ID_Artista" />
+            </Principal>
+            <Dependent Role="Show">
+              <PropertyRef Name="ID_Artista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship2">
+          <End Role="EncargadoEvento" Type="Self.EncargadoEvento" Multiplicity="0..1" />
+          <End Role="Show" Type="Self.Show" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EncargadoEvento">
+              <PropertyRef Name="ID_Encargado" />
+            </Principal>
+            <Dependent Role="Show">
+              <PropertyRef Name="ID_Encargado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relationship3">
+          <End Role="Grupos" Type="Self.Grupos" Multiplicity="0..1" />
+          <End Role="Show" Type="Self.Show" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupos">
+              <PropertyRef Name="ID_Grupo" />
+            </Principal>
+            <Dependent Role="Show">
+              <PropertyRef Name="ID_Grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PrimerParcial_JuanPalaciosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artistas" EntityType="Self.Artista" />
+          <EntitySet Name="EncargadoEventoes" EntityType="Self.EncargadoEvento" />
+          <EntitySet Name="Grupos" EntityType="Self.Grupos" />
+          <EntitySet Name="Shows" EntityType="Self.Show" />
+          <AssociationSet Name="Relationship1" Association="Self.Relationship1">
+            <End Role="Artistas" EntitySet="Artistas" />
+            <End Role="Show" EntitySet="Shows" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship2" Association="Self.Relationship2">
+            <End Role="EncargadoEvento" EntitySet="EncargadoEventoes" />
+            <End Role="Show" EntitySet="Shows" />
+          </AssociationSet>
+          <AssociationSet Name="Relationship3" Association="Self.Relationship3">
+            <End Role="Grupos" EntitySet="Grupos" />
+            <End Role="Show" EntitySet="Shows" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PrimerParcial_JuanPalaciosModelStoreContainer" CdmEntityContainer="PrimerParcial_JuanPalaciosEntities">
+          <EntitySetMapping Name="Artistas">
+            <EntityTypeMapping TypeName="PrimerParcial_JuanPalaciosModel.Artista">
+              <MappingFragment StoreEntitySet="Artistas">
+                <ScalarProperty Name="ID_Artista" ColumnName="ID_Artista" />
+                <ScalarProperty Name="NombreArtista" ColumnName="NombreArtista" />
+                <ScalarProperty Name="EmailArtista" ColumnName="EmailArtista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EncargadoEventoes">
+            <EntityTypeMapping TypeName="PrimerParcial_JuanPalaciosModel.EncargadoEvento">
+              <MappingFragment StoreEntitySet="EncargadoEvento">
+                <ScalarProperty Name="ID_Encargado" ColumnName="ID_Encargado" />
+                <ScalarProperty Name="NombreEncargado" ColumnName="NombreEncargado" />
+                <ScalarProperty Name="TelefonoEncargado" ColumnName="TelefonoEncargado" />
+                <ScalarProperty Name="EmailEncargado" ColumnName="EmailEncargado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupos">
+            <EntityTypeMapping TypeName="PrimerParcial_JuanPalaciosModel.Grupos">
+              <MappingFragment StoreEntitySet="Grupos">
+                <ScalarProperty Name="ID_Grupo" ColumnName="ID_Grupo" />
+                <ScalarProperty Name="NombreGrupo" ColumnName="NombreGrupo" />
+                <ScalarProperty Name="EmailGrupo" ColumnName="EmailGrupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shows">
+            <EntityTypeMapping TypeName="PrimerParcial_JuanPalaciosModel.Show">
+              <MappingFragment StoreEntitySet="Show">
+                <ScalarProperty Name="ID_Show" ColumnName="ID_Show" />
+                <ScalarProperty Name="NombreShow" ColumnName="NombreShow" />
+                <ScalarProperty Name="Fecha_Evento" ColumnName="Fecha_Evento" />
+                <ScalarProperty Name="HoraEvento" ColumnName="HoraEvento" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="ID_Artista" ColumnName="ID_Artista" />
+                <ScalarProperty Name="ID_Encargado" ColumnName="ID_Encargado" />
+                <ScalarProperty Name="ID_Grupo" ColumnName="ID_Grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
