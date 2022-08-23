@@ -4,71 +4,106 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/">Proyecto de Arquitectura</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a runat="server" href="~/">Inicio</a></li>
+                    <li><a runat="server" href="~/Shows/Index">Menú Shows</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<div>
-    <h4>Show</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NombreShow)
-        </dt>
+    <style>
+        a {
+            color: aliceblue;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.NombreShow)
-        </dd>
+            a:hover {
+                color: aliceblue
+            }
+    </style>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha_Evento)
-        </dt>
+    <h2>Details</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fecha_Evento)
-        </dd>
+    <div>
+        <h4>Show</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreShow)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HoraEvento)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NombreShow)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.HoraEvento)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha_Evento)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Fecha_Evento)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cantidad)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.HoraEvento)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Artista.NombreArtista)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.HoraEvento)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Artista.NombreArtista)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EncargadoEvento.NombreEncargado)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cantidad)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EncargadoEvento.NombreEncargado)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Artista.NombreArtista)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Grupos.NombreGrupo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Artista.NombreArtista)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Grupos.NombreGrupo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EncargadoEvento.NombreEncargado)
+            </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Show }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <dd>
+                @Html.DisplayFor(model => model.EncargadoEvento.NombreEncargado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Grupos.NombreGrupo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Grupos.NombreGrupo)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        <p class="btn btn-primary btn-lg">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Show })
+        </p>
+        <p class="btn btn-primary btn-lg">
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </p>
+</body>

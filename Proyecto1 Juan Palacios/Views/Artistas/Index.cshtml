@@ -18,17 +18,25 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a runat="server" href="~/">Inicio</a></li>
-                    <li><a runat="server" href="~/Artistas/Index">Artistas</a></li>
-                    <li><a runat="server" href="~/EncargadoEventoes/Index">Encargado de Eventos</a></li>
-                    <li><a runat="server" href="~/Grupos/Index">Grupos</a></li>
-                    <li><a runat="server" href="~/Shows/Index">Shows</a></li>
+                    <li><a runat="server" href="~/Artistas/Index">Menú de Artistas</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <style>
+        a {
+            color: aliceblue;
+        }
+
+            a:hover {
+                color: aliceblue
+            }
+    </style>
+
     <h2>Agregar Artistas</h2>
 
-    <p>
+    <p class="btn btn-primary btn-lg">
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
@@ -52,9 +60,15 @@
                     @Html.DisplayFor(modelItem => item.EmailArtista)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Artista }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_Artista }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Artista })
+                    <p class="btn btn-primary btn-lg">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Artista })
+                    </p>
+                    <p class="btn btn-primary btn-lg">
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Artista })
+                    </p>}
+                    <p class="btn btn-primary btn-lg">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Artista })
+                    </p>
                 </td>
             </tr>
         }

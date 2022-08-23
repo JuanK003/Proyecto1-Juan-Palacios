@@ -27,6 +27,16 @@
         </div>
     </div>
 
+    <style>
+        a {
+            color: aliceblue;
+        }
+
+            a:hover {
+                color: aliceblue
+            }
+    </style>
+
     <h2>Agregar Shows</h2>
 
     <p>
@@ -83,9 +93,15 @@
                     @Html.DisplayFor(modelItem => item.Grupos.NombreGrupo)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_Show }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID_Show }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_Show })
+                    <p class="btn btn-primary btn-lg">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Show })
+                    </p>
+                    <p class="btn btn-primary btn-lg">
+                        @Html.ActionLink("Details", "Details", new { id = item.ID_Show })
+                    </p>
+                    <p class="btn btn-primary btn-lg">
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Show })
+                    </p>
                 </td>
             </tr>
         }
