@@ -3,9 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>&nbsp;VISITA MI GITHUB</h1>
-        <p class="lead">Encontraras algunos proyectos semi profesionales con fines didácticos.</p>
-        <p><a href="https://github.com/JuanK003?tab=repositories" class="btn btn-primary btn-lg">GitHub &raquo;</a></p>
+        <h1>All Stars</h1>
+        <p class="lead">A<span lang="ES-GT">lquilamos espacios especiales para realizar diferentes conciertos, shows o presentaciones artísticas, este lugar tiene capacidad desde 1000 hasta 6000, a este llegan diferentes artistas o grupos musicales.</span></p>
     </div>
 
     <div class="row">

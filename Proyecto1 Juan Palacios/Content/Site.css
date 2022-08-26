@@ -2,6 +2,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #F8F8FF ;
 }
 
 /* Wrapping element */
@@ -32,6 +33,6 @@ textarea {
 
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-    background-color: #777;
-    border-color: #fff
+    background-color: #727272;
+    border-color: #c7c7c7;
 }
